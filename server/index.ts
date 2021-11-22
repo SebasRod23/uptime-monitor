@@ -5,6 +5,7 @@ import cookieParser from 'cookie-parser';
 
 import config from './config/config';
 import authRouter from './routers/auth';
+import monitorRouter from './routers/monitor';
 
 const app = express();
 
@@ -23,6 +24,7 @@ app.use(cookieParser());
 app.use(express.json());
 
 app.use('/auth', authRouter);
+app.use('/monitor', monitorRouter);
 
 app.get('/', (_: Request, res: Response) => {
   res.send('Server is running');
