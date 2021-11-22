@@ -26,5 +26,9 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.0.13",
     "ts-node-dev": "^1.1.8"
+  },
+  "scripts": {
+    "server-start": "ts-node-dev index.ts",
+    "tsc": "tsc"
   }
 }
