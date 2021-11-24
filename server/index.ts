@@ -6,6 +6,7 @@ import cookieParser from 'cookie-parser';
 import config from './config/config';
 import authRouter from './routers/auth';
 import monitorRouter from './routers/monitor';
+import checkMonitors from './functions/checkMonitors';
 
 const app = express();
 
@@ -33,3 +34,5 @@ app.get('/', (_: Request, res: Response) => {
 app.listen(config.server.port, () => {
   console.log('Server is listening on port: ' + config.server.port);
 });
+
+setInterval(checkMonitors, config.monitorCheck.time);

@@ -12,6 +12,9 @@ const TOKEN_EXPIRE_TIME = process.env.TOKEN_EXPIRE_TIME || '1h';
 
 const COOKIE_MAX_AGE = parseInt(process.env.COOKIE_EXPIRE_TIME!) || 3600000;
 
+const MONITORS_TIME_OFFSET =
+  parseInt(process.env.MONITORS_TIME_OFFSET!) || 30000;
+
 const config = {
   server: {
     port: SERVER_PORT,
@@ -26,6 +29,9 @@ const config = {
   },
   cookie: {
     maxage: COOKIE_MAX_AGE,
+  },
+  monitorCheck: {
+    time: MONITORS_TIME_OFFSET,
   },
 };
 

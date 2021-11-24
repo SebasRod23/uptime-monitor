@@ -23,6 +23,7 @@ router.post(
   hasJWT,
   body('name').isString(),
   body('url').isString(),
+  body('url').matches('^https?://'),
   async (req: Request, res: Response) => {
     if (!validationResult(req).isEmpty()) {
       return res.status(400).json({
@@ -66,6 +67,7 @@ router.post(
   hasAccess,
   body('name').isString(),
   body('url').isString(),
+  body('url').matches('^https?://'),
   async (req: Request, res: Response) => {
     if (!validationResult(req).isEmpty()) {
       return res.status(400).json({
@@ -77,7 +79,7 @@ router.post(
     const monitor: iMonitor = res.locals.monitor;
 
     monitor
-      .update({
+      .updateOne({
         name: name,
         url: url,
         message: message,
