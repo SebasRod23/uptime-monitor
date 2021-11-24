@@ -28,10 +28,14 @@ const cellStyles = makeStyles((_: Theme) =>
       display: 'flex',
       gap: '16px',
     },
-    status: {
+    container: {
       display: 'flex',
       flexDirection: 'row',
       gap: '25px',
+    },
+    status: {
+      width: '60px',
+      textAlign: 'center',
     },
   }),
 );
@@ -58,21 +62,29 @@ const MonitorCell: React.FC<CellProps> = (props: CellProps) => {
   return (
     <Card key={props.monitor._id} className={cellClasses.cell} raised>
       <div className={cellClasses.infoContainer}>
-        <div className={cellClasses.status}>
-          <Typography
-            variant='h6'
-            align='center'
-            style={{
-              color:
-                props.monitor.records.slice(-1)[0].status === 'OKAY'
-                  ? 'green'
-                  : 'red',
-            }}
-          >
-            {props.monitor.records.slice(-1)[0].status === 'OKAY'
-              ? 'UP'
-              : 'DOWN'}
-          </Typography>
+        <div className={cellClasses.container}>
+          <div className={cellClasses.status}>
+            {props.monitor.records.length > 0 ? (
+              <Typography
+                variant='h6'
+                align='center'
+                style={{
+                  color:
+                    props.monitor.records.slice(-1)[0].status === 'OKAY'
+                      ? 'green'
+                      : 'red',
+                }}
+              >
+                {props.monitor.records.slice(-1)[0].status === 'OKAY'
+                  ? 'UP'
+                  : 'DOWN'}
+              </Typography>
+            ) : (
+              <Typography variant='h6' align='center'>
+                NEW
+              </Typography>
+            )}
+          </div>
           <Typography variant='h5' align='center'>
             {props.monitor.name}
           </Typography>

@@ -16,6 +16,8 @@ import LoginPage from './containers/auth/LoginPage';
 import RegisterPage from './containers/auth/RegisterPage';
 import LandingPage from './containers/LandingPage';
 import HomePage from './containers/monitors/HomePage';
+import CreatePage from './containers/monitors/CreatePage';
+import UpdatePage from './containers/monitors/UpdatePage';
 
 const appBarStyles = makeStyles((_: Theme) =>
   createStyles({
@@ -114,6 +116,12 @@ const App: React.FC = () => {
           </Route>
           <Route exact path='/home'>
             <HomePage />
+          </Route>
+          <Route exact path='/create-monitor'>
+            <CreatePage />
+          </Route>
+          <Route exact path='/edit-monitor/:monitorId'>
+            <UpdatePage />
           </Route>
         </Switch>
       </UserContextProvider>
