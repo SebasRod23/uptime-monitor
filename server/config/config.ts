@@ -2,7 +2,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const SERVER_PORT = parseInt(process.env.PORT!) || 5000;
+const SERVER_PORT = parseInt(process.env.SERVER_PORT!) || 5000;
 
 const DB_URI = process.env.DB_URI || 'localhost:27017';
 
