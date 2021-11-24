@@ -1,9 +1,9 @@
 import emailjs from 'emailjs-com';
 
-import { SendEmailData } from '../types/types';
+import { SendEmailData } from './types';
 
-export const SendEmail = (sendEmailData: SendEmailData) => {
-  emailjs
+export const SendEmail = async (sendEmailData: SendEmailData) => {
+  await emailjs
     .send(
       'service_80idy7g',
       'template_r20vjiy',
