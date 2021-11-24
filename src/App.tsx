@@ -18,6 +18,7 @@ import LandingPage from './containers/LandingPage';
 import HomePage from './containers/monitors/HomePage';
 import CreatePage from './containers/monitors/CreatePage';
 import UpdatePage from './containers/monitors/UpdatePage';
+import RecordsPage from './containers/monitors/RecordsPage';
 
 const appBarStyles = makeStyles((_: Theme) =>
   createStyles({
@@ -122,6 +123,9 @@ const App: React.FC = () => {
           </Route>
           <Route exact path='/edit-monitor/:monitorId'>
             <UpdatePage />
+          </Route>
+          <Route exact path='/view-records/:monitorId'>
+            <RecordsPage />
           </Route>
         </Switch>
       </UserContextProvider>

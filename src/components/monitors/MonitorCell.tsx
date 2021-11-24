@@ -94,7 +94,7 @@ const MonitorCell: React.FC<CellProps> = (props: CellProps) => {
             variant='contained'
             color='primary'
             onClick={() => {
-              history.push('/view-monitor/' + props.monitor._id);
+              history.push('/view-records/' + props.monitor._id);
             }}
           >
             View Records
