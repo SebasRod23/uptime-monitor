@@ -15,6 +15,9 @@ const COOKIE_MAX_AGE = parseInt(process.env.COOKIE_EXPIRE_TIME!) || 3600000;
 const MONITORS_TIME_OFFSET =
   parseInt(process.env.MONITORS_TIME_OFFSET!) || 30000;
 
+const EMAIL_USER = process.env.EMAIL_USER || 'email@gmail.com';
+const EMAIL_PASSWORD = process.env.EMAIL_PASSWORD || 'password';
+
 const config = {
   server: {
     port: SERVER_PORT,
@@ -32,6 +35,10 @@ const config = {
   },
   monitorCheck: {
     time: MONITORS_TIME_OFFSET,
+  },
+  email: {
+    user: EMAIL_USER,
+    password: EMAIL_PASSWORD,
   },
 };
 

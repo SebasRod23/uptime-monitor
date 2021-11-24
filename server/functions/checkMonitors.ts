@@ -28,7 +28,7 @@ const checkMonitors = async () => {
 
     const user = await User.findById(monitor.userId);
 
-    if (record.status === 'DOWN') {
+    if (user && record.status === 'DOWN') {
       await SendEmail({
         date: record.date.toLocaleString(),
         message: `${monitor.name} - ${monitor.url}`,
